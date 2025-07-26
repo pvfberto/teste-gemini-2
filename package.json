@@ -1,0 +1,17 @@
+{
+  "name": "total-ads-360-landing",
+  "version": "1.0.0",
+  "description": "Static landing page for Total Ads 360º course",
+  "main": "index.html",
+  "scripts": {
+    "dev": "serve -s . -p 3000",
+    "start": "serve -s . -p 3000",
+    "build": "echo 'Static site - no build required'"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  },
+  "keywords": ["landing-page", "static", "ads", "course"],
+  "author": "Paulo Berto",
+  "license": "ISC"
+}
