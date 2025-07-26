@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KSDFSPQT');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Ads 360º - Por Paulo Berto</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS (Animate on Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Alpine.js for interactivity -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        /* Custom styles for the "Arrojado" design */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* Dark background */
+            color: #e6edf3; /* Light text for dark background */
+        }
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-green: #16a34a;
+            --accent-purple: #8b5cf6;
+            --text-dark: #374151;
+            --text-light: #6b7280;
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(90deg, var(--accent-purple), var(--secondary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        
+        /* 3D Button Style */
+        .btn-3d {
+            position: relative;
+            border: none;
+            transition: all 0.1s linear;
+            box-shadow: 0 4px 0 #0e296b, 0 5px 5px 1px rgba(0,0,0,0.4);
+        }
+        .btn-3d:active {
+            transform: translateY(4px);
+            box-shadow: 0 0px 0 #0e296b;
+        }
+
+        .btn-3d-secondary {
+            position: relative;
+            border: none;
+            transition: all 0.1s linear;
+            box-shadow: 0 4px 0 #107c36, 0 5px 5px 1px rgba(0,0,0,0.4);
+        }
+        .btn-3d-secondary:active {
+            transform: translateY(4px);
+            box-shadow: 0 0px 0 #107c36;
+        }
+
+        /* Gradient buttons */
+        .gradient-btn {
+            background-image: linear-gradient(to right, var(--primary-blue) 0%, var(--accent-purple) 51%, var(--primary-blue) 100%);
+            transition: 0.5s;
+            background-size: 200% auto;
+        }
+        .gradient-btn:hover {
+            background-position: right center;
+        }
+        
+        .gradient-btn-secondary {
+            background-image: linear-gradient(to right, var(--secondary-green) 0%, var(--accent-purple) 51%, var(--secondary-green) 100%);
+            transition: 0.5s;
+            background-size: 200% auto;
+        }
+        .gradient-btn-secondary:hover {
+            background-position: right center;
+        }
+
+        /* Glassmorphism effect */
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Glow effect */
+        .glow-box {
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.4), 0 0 30px rgba(139, 92, 246, 0.2);
+        }
+        
+        /* Floating animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Animated gradient background */
+        .animated-gradient-bg {
+            background: linear-gradient(-45deg, #0d1117, #1e3a8a, #16a34a, #0d1117);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Calculator Section */
+        .calculator-section {
+            padding: 80px 20px;
+            background: #0d1117;
+            position: relative;
+        }
+
+        .calculator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(22, 27, 34, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .calculator-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e6edf3;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .calculator-header .subtitle {
+            font-size: 1.2rem;
+            color: #8d96a0;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .calculator-header .intro-text {
+            font-size: 1rem;
+            color: #8d96a0;
+            line-height: 1.5;
+        }
+
+        /* Business Type Selector */
+        .business-type-selector h3 {
+            font-size: 1.4rem;
+            color: #e6edf3;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .radio-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .radio-card {
+            position: relative;
+            cursor: pointer;
+            display: block;
+        }
+
+        .radio-card input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .radio-content {
+            padding: 25px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .radio-content .icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .radio-content .text {
+            font-weight: 600;
+            color: #e6edf3;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        .radio-content .subtext {
+            font-size: 0.9rem;
+            color: #8d96a0;
+            line-height: 1.3;
+        }
+
+        .radio-card input:checked + .radio-content {
+            border-color: var(--accent-purple);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+        }
+
+        .radio-card input:checked + .radio-content .text,
+        .radio-card input:checked + .radio-content .subtext {
+            color: white;
+        }
+
+        /* Input Sections */
+        .input-section {
+            margin-bottom: 30px;
+            transition: all 0.5s ease;
+        }
+
+        .input-section.hidden {
+            display: none;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            color: #e6edf3;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-wrapper input {
+            flex: 1;
+            padding: 16px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            background: #0d1117;
+            color: #e6edf3;
+        }
+
+        .input-wrapper input:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+        }
+
+        .currency {
+            position: absolute;
+            left: 15px;
+            color: #8d96a0;
+            font-weight: 600;
+            z-index: 1;
+            padding-right: 5px;
+        }
+        
+        .input-wrapper input {
+            padding-left: 45px;
+        }
+
+        .suffix {
+            position: absolute;
+            right: 15px;
+            color: #8d96a0;
+            font-weight: 600;
+        }
+        
+        .help-text {
+            display: block;
+            font-size: 0.85rem;
+            color: #8d96a0;
+            margin-top: 6px;
+            line-height: 1.3;
+        }
+
+        /* Calculate Button */
+        .calculate-button {
+            width: 100%;
+            padding: 18px 30px;
+            background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calculate-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(22, 163, 74, 0.4);
+        }
+
+        .calculate-button:disabled {
+            background: #484f58;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn-loader.hidden,
+        .btn-text.hidden {
+            display: none;
+        }
+
+        /* Results Cards */
+        .results-card {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-purple) 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 30px;
+            box-shadow: 0 20px 40px rgba(30, 58, 138, 0.3);
+            animation: slideInUp 0.6s ease;
+        }
+
+        .results-card.hidden {
+            display: none;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .results-header h3 {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .metric-label {
+            display: block;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+
+        .metric-value {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .metric-period {
+            display: block;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* Main Result */
+        .main-result {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .gain-highlight {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .gain-label {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .gain-value {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fbbf24;
+        }
+
+        /* Annual Projection */
+        .annual-projection {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: rgba(251, 191, 36, 0.2);
+            border-radius: 12px;
+        }
+
+        .annual-label {
+            font-size: 1.1rem;
+            margin-right: 10px;
+        }
+
+        .annual-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fbbf24;
+        }
+
+        /* Savings Section */
+        .savings-section {
+            margin-bottom: 30px;
+        }
+
+        .saving-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+
+        .saving-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .saving-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fbbf24;
+        }
+
+        /* ROI Box */
+        .roi-box {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .roi-content h4 {
+            font-size: 1.3rem;
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .course-price {
+            color: #fbbf24;
+            font-size: 1.5rem;
+        }
+
+        .roi-details p {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .roi-details span {
+            font-weight: 700;
+            color: #fbbf24;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: block;
+            text-align: center;
+            width: 100%;
+            padding: 20px 30px;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #1e3a8a;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(251, 191, 36, 0.4);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .calculator-container {
+                padding: 25px;
+                margin: 0 15px;
+            }
+            .results-card {
+                padding: 30px 20px;
+            }
+            
+            .calculator-header h2 {
+                font-size: 2rem;
+            }
+            
+            .radio-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .saving-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calculator-header h2 {
+                font-size: 1.7rem;
+            }
+            
+            .calculator-header .subtitle {
+                font-size: 1rem;
+            }
+            
+            .metric-value {
+                font-size: 1.5rem;
+            }
+            
+            .gain-value {
+                font-size: 2rem;
+            }
+            .cta-button {
+                font-size: 1.1rem;
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KSDFSPQT"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5511930308040" target="_blank" rel="noopener noreferrer" class="fixed bottom-4 left-4 md:bottom-8 md:left-8 z-50 bg-green-500 text-white p-3 md:p-4 rounded-full shadow-lg hover:bg-green-600 transition-transform transform hover:scale-110">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.505 1.905 6.344l-1.225 4.485 4.635-1.218z"/>
+        </svg>
+    </a>
+
+    <!-- 0. Navigation Bar (Fixed/Floating) -->
+    <header x-data="{ mobileMenuOpen: false }" class="glassmorphism fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl mx-auto rounded-xl z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-xl font-bold text-white">Total Ads 360º</a>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#metodo" class="text-gray-300 hover:text-white transition-colors duration-300">Método</a>
+                    <a href="#modulos" class="text-gray-300 hover:text-white transition-colors duration-300">Módulos</a>
+                    <a href="#sobre" class="text-gray-300 hover:text-white transition-colors duration-300">Sobre</a>
+                    <a href="#faq" class="text-gray-300 hover:text-white transition-colors duration-300">FAQ</a>
+                </nav>
+                <a href="https://checkout.pauloberto.com.br/16529850" target="_blank" class="hidden md:inline-block gradient-btn btn-3d text-white font-semibold px-5 py-2 rounded-lg shadow-lg">
+                    Quero Fazer Anúncios 360º
+                </a>
+                <div class="md:hidden">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path :class="{'hidden': mobileMenuOpen}" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path><path :class="{'hidden': !mobileMenuOpen}" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div x-show="mobileMenuOpen" x-transition class="md:hidden mt-4 space-y-2">
+                <a href="#metodo" @click="mobileMenuOpen = false" class="block px-4 py-2 text-gray-200 hover:bg-white/10 rounded-lg">Método</a>
+                <a href="#modulos" @click="mobileMenuOpen = false" class="block px-4 py-2 text-gray-200 hover:bg-white/10 rounded-lg">Módulos</a>
+                <a href="#sobre" @click="mobileMenuOpen = false" class="block px-4 py-2 text-gray-200 hover:bg-white/10 rounded-lg">Sobre</a>
+                <a href="#faq" @click="mobileMenuOpen = false" class="block px-4 py-2 text-gray-200 hover:bg-white/10 rounded-lg">FAQ</a>
+                <a href="https://checkout.pauloberto.com.br/16529850" @click="mobileMenuOpen = false" class="block w-full text-center gradient-btn btn-3d text-white font-semibold mt-4 px-5 py-3 rounded-lg shadow-md">
+                    Quero Fazer Anúncios 360º
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24">
+
+        <!-- 1. Hero Section -->
+        <section class="relative py-20 md:py-32 overflow-hidden">
+             <div class="absolute inset-0 bg-grid-white/[0.05] [mask-image:linear-gradient(to_bottom,white_5%,transparent_90%)]"></div>
+             <div class="absolute top-0 left-0 w-96 h-96 bg-accent-purple/20 rounded-full filter blur-3xl opacity-50 animate-blob"></div>
+             <div class="absolute top-1/2 right-0 w-96 h-96 bg-secondary-green/20 rounded-full filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="grid md:grid-cols-5 gap-12 items-center">
+                    <div class="md:col-span-3" data-aos="fade-right">
+                        <h1 class="text-4xl md:text-6xl font-black text-white leading-tight tracking-tighter">
+                            Descobri Por Que Anúncios <span class="gradient-text">Inteligentes e Estratégicos</span> Vendem Muito Mais Que Anúncios Criativos
+                        </h1>
+                        <p class="mt-6 text-lg text-gray-300">
+                            Após analisar mais de R$40 milhões em campanhas comprovei que anúncios eficazes falam com tipos específicos de personalidade, não com 'todo mundo'. Meu método ensina como fazer isso sistematicamente.
+                        </p>
+                        <a href="https://checkout.pauloberto.com.br/16529850" target="_blank" class="mt-10 inline-block gradient-btn-secondary btn-3d-secondary text-white font-bold text-xl px-10 py-5 rounded-lg shadow-lg">
+                            🎯 QUERO FAZER ANÚNCIOS 360º
+                        </a>
+                        <p class="mt-6 text-sm text-gray-400 font-semibold">
+                            Método testado com mais de R$40 milhões em campanhas
+                        </p>
+                    </div>
+                    <div class="md:col-span-2 flex flex-col items-center" data-aos="fade-left" data-aos-delay="200">
+                        <div class="relative">
+                            <img src="https://cdn.builder.io/api/v1/image/assets%2Ff261cd05e5a247768cb7d69688062e23%2Fbd4b6d6a559a42abafd148ddb8bde158" alt="[Imagem de Paulo Berto em ambiente de negócios moderno]" class="rounded-xl shadow-2xl w-full max-w-sm object-cover z-10 relative">
+                             <div class="absolute -top-4 -left-4 w-full h-full border-2 border-accent-purple rounded-xl transform rotate-[-3deg]"></div>
+                             <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-green-500/20 rounded-full filter blur-2xl floating"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Problem Section -->
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-6 text-center">
+                <div data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Por Que Anúncios 'Criativos' Fracassam Enquanto Anúncios <span class="gradient-text">Inteligentes e Estratégicos</span> Vendem?</h2>
+                    <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">Essa é a realidade que 90% dos anunciantes ignora completamente.</p>
+                </div>
+
+                <div class="my-12 p-6 glassmorphism rounded-2xl inline-block" data-aos="zoom-in" data-aos-delay="200">
+                    <p class="text-lg text-gray-400 pb-2">Nas redes sociais ocorrem mais de</p>
+                    <p class="text-3xl font-bold text-white">
+                        <span id="counter" class="gradient-text">0</span>&nbsp;estímulos por minuto vs <span class="text-green-400">6 posts</span> vistos concentradamente pelos usuários.
+                    </p>
+                    <p class="text-lg text-gray-400 pt-2">Essa é a batalha pela atenção que você está perdendo.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 mt-12">
+                    <div class="glassmorphism p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-5xl mb-4">⏰</div>
+                        <h3 class="text-xl font-bold text-white">+ Desperdício de tempo</h3>
+                        <p class="mt-2 text-gray-400">Horas gastas em ajustes que o algoritmo faria melhor.</p>
+                    </div>
+                    <div class="glassmorphism p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-5xl mb-4">🎯</div>
+                        <h3 class="text-xl font-bold text-white">+ Limitação de alcance</h3>
+                        <p class="mt-2 text-gray-400">Segmentações que impedem o algoritmo de encontrar clientes.</p>
+                    </div>
+                    <div class="glassmorphism p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-5xl mb-4">🧠</div>
+                        <h3 class="text-xl font-bold text-white">+ Fadiga criativa</h3>
+                        <p class="mt-2 text-gray-400">Energia desperdiçada em tarefas técnicas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Solution Section (3 Pillars) -->
+        <section id="metodo" class="py-16 md:py-24 animated-gradient-bg">
+            <div class="container mx-auto px-6 text-center">
+                <div data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Te Apresento Meu Curso <span class="gradient-text">Total Ads 360º</span></h2>
+                    <p class="mt-4 text-lg font-medium text-gray-300 max-w-3xl mx-auto">A metodologia que sincroniza seus anúncios com o comportamento humano e a otimização das plataformas. Este Curso está baseado na metodologia <strong><u>EM-SA</u></strong> que desenvolvi ao longo de mais de uma década gerenciando campanhas.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 mt-12 text-center">
+                    <div class="bg-gray-800/50 p-8 rounded-2xl border border-white/10 shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-5xl mb-4">👁️</div>
+                        <h3 class="text-xl font-bold text-white">ESTÍMULO (E)</h3>
+                        <p class="mt-2 text-gray-400">Técnicas para capturar atenção em feeds saturados.</p>
+                    </div>
+                    <div class="bg-gray-800/50 p-8 rounded-2xl border border-white/10 shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-5xl mb-4">🧠</div>
+                        <h3 class="text-xl font-bold text-white">MENSAGEM (M)</h3>
+                        <p class="mt-2 text-gray-400">Estrutura para comunicar com diferentes perfis psicológicos.</p>
+                    </div>
+                    <div class="bg-gray-800/50 p-8 rounded-2xl border border-white/10 shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-5xl mb-4">⚡</div>
+                        <h3 class="text-xl font-bold text-white">SENTIMENTO-AÇÃO (SA)</h3>
+                        <p class="mt-2 text-gray-400">Gatilhos que transformam interesse em cliques qualificados.</p>
+                    </div>
+                </div>
+                <div class="mt-12 glassmorphism p-6 rounded-lg font-semibold text-lg max-w-4xl mx-auto glow-box" data-aos="zoom-in" data-aos-delay="400">
+                    Cria conjuntos estratégicos de anúncios que funcionam em sinergia com a inteligência dos&nbsp; algoritmos das plataformas .
+                </div>
+            </div>
+        </section>
+
+        <!-- ROI Calculator Section -->
+        <section class="calculator-section" id="calculadora">
+            <div class="calculator-container" data-aos="fade-up">
+                <div class="calculator-header">
+                    <h2>Descubra Quanto Você Pode <span class="gradient-text">Economizar e Ganhar</span></h2>
+                    <p class="subtitle">Em 10 anos analisando R$40 milhões em campanhas, identifiquei que aplicar o método correto melhora ROAS em no mínimo 30% e reduz CPL na mesma proporção. Calcule seu potencial:</p>
+                    <p class="intro-text">Mesmo aplicando apenas os conceitos básicos do Curso Total Ads 360º, nossos alunos relatam melhorias consistentes de 30-50% nos resultados. Use a calculadora abaixo para descobrir o impacto no seu negócio:</p>
+                </div>
+                
+                <div class="calculator-body">
+                    <div class="business-type-selector">
+                        <h3>Primeiro, me conte sobre seu negócio:</h3>
+                        <div class="radio-options">
+                            <label class="radio-card">
+                                <input type="radio" name="businessType" value="vendas">
+                                <div class="radio-content">
+                                    <span class="icon">🛒</span>
+                                    <span class="text">Vendo produtos/serviços diretamente</span>
+                                    <span class="subtext">Uso anúncios para gerar vendas imediatas</span>
+                                </div>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="businessType" value="leads">
+                                <div class="radio-content">
+                                    <span class="icon">📋</span>
+                                    <span class="text">Gero leads para vendas offline</span>
+                                    <span class="subtext">Uso anúncios para capturar contatos qualificados</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="vendas-inputs" class="input-section hidden">
+                        <div class="input-group">
+                            <label>💰 Quanto você investe por mês em anúncios?</label>
+                            <div class="input-wrapper">
+                                <span class="currency">R$</span>
+                                <input type="number" id="investimento-vendas" placeholder="5000" min="100" step="100">
+                            </div>
+                            <span class="help-text">Digite apenas números (ex: 5000 para R$ 5.000)</span>
+                        </div>
+                        <div class="input-group">
+                            <label>📊 Qual seu ROAS médio atual?</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="roas-atual" placeholder="3.5" min="0.1" step="0.1">
+                                <span class="suffix">x</span>
+                            </div>
+                            <span class="help-text">ROAS = Faturamento ÷ Investimento (ex: 3.5 significa que cada R$1 investido gera R$3,50)</span>
+                        </div>
+                    </div>
+
+                    <div id="leads-inputs" class="input-section hidden">
+                        <div class="input-group">
+                            <label>💰 Quanto você investe por mês em anúncios?</label>
+                            <div class="input-wrapper">
+                                <span class="currency">R$</span>
+                                <input type="number" id="investimento-leads" placeholder="3000" min="100" step="100">
+                            </div>
+                            <span class="help-text">Digite apenas números (ex: 3000 para R$ 3.000)</span>
+                        </div>
+                        <div class="input-group">
+                            <label>📋 Qual seu CPL médio atual?</label>
+                            <div class="input-wrapper">
+                                <span class="currency">R$</span>
+                                <input type="number" id="cpl-atual" placeholder="25" min="1" step="0.50">
+                            </div>
+                            <span class="help-text">CPL = Investimento ÷ Número de leads (ex: R$ 25 por lead)</span>
+                        </div>
+                        <div class="input-group">
+                            <label>💵 Qual o ticket médio das suas vendas?</label>
+                            <div class="input-wrapper">
+                                <span class="currency">R$</span>
+                                <input type="number" id="ticket-medio" placeholder="500" min="50" step="50">
+                            </div>
+                            <span class="help-text">Valor médio de cada venda que você fecha (ex: R$ 500)</span>
+                        </div>
+                    </div>
+
+                    <button id="calculate-btn" class="calculate-button" disabled>
+                        <span class="btn-text">📊 CALCULAR MEU POTENCIAL</span>
+                        <span class="btn-loader hidden">⏳ Calculando...</span>
+                    </button>
+                </div>
+                
+                <div id="vendas-results" class="results-card hidden">
+                    <div class="results-header"><h3>🎯 POTENCIAL DE GANHO COM ANÚNCIOS 360º</h3></div>
+                    <div class="metrics-grid">
+                        <div class="metric-card current"><span class="metric-label">Faturamento atual</span><span class="metric-value" id="faturamento-atual">R$ 0</span><span class="metric-period">por mês</span></div>
+                        <div class="metric-card improved"><span class="metric-label">Novo faturamento</span><span class="metric-value" id="novo-faturamento">R$ 0</span><span class="metric-period">por mês</span></div>
+                    </div>
+                    <div class="main-result"><div class="gain-highlight"><span class="gain-label">GANHO ADICIONAL MENSAL:</span><span class="gain-value" id="ganho-mensal">R$ 0</span></div></div>
+                    <div class="annual-projection"><span class="annual-label">💰 EM 12 MESES:</span><span class="annual-value" id="ganho-anual">R$ 0</span></div>
+                    <div class="roi-box">
+                        <div class="roi-content">
+                            <h4>O Curso Total Ads 360º custa apenas <span class="course-price">R$ 299,99</span></h4>
+                            <div class="roi-details">
+                                <p>✅ Você recupera o investimento em <span id="dias-recuperacao">0</span> dias</p>
+                                <p>✅ Lucro líquido no primeiro ano: <span id="lucro-liquido">R$ 0</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://checkout.pauloberto.com.br/16529850" target="_blank" class="cta-button">🚀 QUERO FAZER ANÚNCIOS 360º</a>
+                </div>
+
+                <div id="leads-results" class="results-card hidden">
+                    <div class="results-header"><h3>📊 POTENCIAL DE ECONOMIA COM ANÚNCIOS 360º</h3></div>
+                    <div class="metrics-grid">
+                        <div class="metric-card current"><span class="metric-label">Leads atuais</span><span class="metric-value" id="leads-atuais">0</span><span class="metric-period">por mês</span></div>
+                        <div class="metric-card improved"><span class="metric-label">Novas leads</span><span class="metric-value" id="novas-leads">0</span><span class="metric-period">por mês</span></div>
+                    </div>
+                    <div class="main-result"><div class="gain-highlight"><span class="gain-label">LEADS EXTRAS MENSAIS:</span><span class="gain-value" id="leads-extras">0</span></div></div>
+                    <div class="savings-section">
+                        <div class="saving-item"><span class="saving-label">💰 ECONOMIA MENSAL:</span><span class="saving-value" id="economia-mensal">R$ 0</span></div>
+                        <div class="saving-item"><span class="saving-label">💰 EM 12 MESES:</span><span class="saving-value" id="economia-anual">R$ 0</span></div>
+                    </div>
+                    <div class="roi-box">
+                        <div class="roi-content">
+                            <h4>O Curso Total Ads 360º custa apenas <span class="course-price">R$ 299,99</span></h4>
+                            <div class="roi-details">
+                                <p>✅ Sua economia no primeiro mês: <span id="economia-primeiro-mes">R$ 0</span></p>
+                                <p>✅ Sobra líquida: <span id="sobra-liquida">R$ 0</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://checkout.pauloberto.com.br/16529850" target="_blank" class="cta-button">🚀 QUERO FAZER ANÚNCIOS 360º</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Credibility Section -->
+        <section id="sobre" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div data-aos="fade-right" class="relative">
+                        <img src="https://cdn.builder.io/api/v1/image/assets%2Ff261cd05e5a247768cb7d69688062e23%2Fa6cb5dd9ee2c440c90d8178f39b29a5c" alt="[Imagem grande e profissional de Paulo Berto]" class="rounded-xl shadow-2xl w-full relative z-10">
+                        <div class="absolute inset-0 bg-accent-purple/20 rounded-xl filter blur-2xl -translate-x-4 translate-y-4"></div>
+                    </div>
+                    <div data-aos="fade-left" data-aos-delay="200">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white">Por Que Confiar No Curso <span class="gradient-text">Total Ads 360º?</span></h2>
+                        <div class="mt-6 space-y-4 text-gray-300 border-l-2 border-accent-purple pl-4">
+                            <p>📊 <strong>+10 anos</strong> em Marketing Digital</p>
+                            <p>💰 <strong>+R$40 Milhões</strong> Gerenciados</p>
+                            <p>🎓 <strong>Físico</strong> pela UNICAMP</p>
+                            <p>🤝 <strong>Ex-sócio</strong>&nbsp;da Kobe de Raiam Santos</p>
+                        </div>
+                        <p class="mt-6 text-gray-300">
+                            Desenvolvi uma metodologia única que combina rigor analítico com comportamento humano nas redes sociais. Resultado de uma década aperfeiçoando a criação de anúncios que realmente convertem. Ensino coisas que não vi nem em MasterMinds mais caros do Mercado Digital.
+                        </p>
+                        <div class="mt-8 glassmorphism p-6 rounded-lg font-semibold border-l-4 border-green-400">
+                            "Aplicado em e-commerces, infoprodutos, B2B, serviços, sempre com aumento de escala e redução de custos."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Offer Section -->
+        <section id="modulos" class="py-16 md:py-24 bg-gray-900/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">O Que Você Receberá No Curso <span class="gradient-text">Total Ads 360º</span></h2>
+                </div>
+                <div class="my-12 max-w-4xl mx-auto" data-aos="zoom-in-up" data-aos-delay="200">
+                    <img src="https://cdn.builder.io/api/v1/image/assets%2Ff261cd05e5a247768cb7d69688062e23%2F0a2a252a33ca45ce9571bc749f7fb9b6" alt="[Mockup da plataforma do curso com design moderno]" class="rounded-xl shadow-2xl w-full border border-white/10">
+                </div>
+                <div class="max-w-3xl mx-auto" x-data="{ openAccordion: 1 }">
+                    <div class="space-y-4">
+                        <div class="glassmorphism rounded-lg" data-aos="fade-up"><button @click="openAccordion = (openAccordion === 1 ? null : 1)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-white"><span class="flex items-center">📚<span class="ml-3">Módulo Introdutório: A Revolução</span></span><svg :class="{'rotate-180': openAccordion === 1}" class="w-5 h-5 text-accent-purple transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></button><div x-show="openAccordion === 1" x-collapse class="p-5 pt-0 text-gray-400">A base para pensar como um anunciante de elite.</div></div>
+                        <div class="glassmorphism rounded-lg" data-aos="fade-up"><button @click="openAccordion = (openAccordion === 2 ? null : 2)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-white"><span class="flex items-center">📊<span class="ml-3">Módulo 1 - Estímulo</span></span><svg :class="{'rotate-180': openAccordion === 2}" class="w-5 h-5 text-accent-purple transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></button><div x-show="openAccordion === 2" x-collapse class="p-5 pt-0 text-gray-400">Vença a guerra da atenção e capture o clique.</div></div>
+                        <div class="glassmorphism rounded-lg" data-aos="fade-up"><button @click="openAccordion = (openAccordion === 3 ? null : 3)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-white"><span class="flex items-center">💬<span class="ml-3">Módulo 2 - Mensagem</span></span><svg :class="{'rotate-180': openAccordion === 3}" class="w-5 h-5 text-accent-purple transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></button><div x-show="openAccordion === 3" x-collapse class="p-5 pt-0 text-gray-400">A comunicação 360° que conecta e vende.</div></div>
+                        <div class="glassmorphism rounded-lg" data-aos="fade-up"><button @click="openAccordion = (openAccordion === 4 ? null : 4)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-white"><span class="flex items-center">❤️<span class="ml-3">Módulo 3 - Sentimento-Ação</span></span><svg :class="{'rotate-180': openAccordion === 4}" class="w-5 h-5 text-accent-purple transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></button><div x-show="openAccordion === 4" x-collapse class="p-5 pt-0 text-gray-400">Crie cliques que realmente vendem.</div></div>
+                        <div class="glassmorphism rounded-lg" data-aos="fade-up"><button @click="openAccordion = (openAccordion === 5 ? null : 5)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-white"><span class="flex items-center">⚙️<span class="ml-3">Módulo 4 - Framework</span></span><svg :class="{'rotate-180': openAccordion === 5}" class="w-5 h-5 text-accent-purple transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></button><div x-show="openAccordion === 5" x-collapse class="p-5 pt-0 text-gray-400">Sua esteira de produção de anúncios.</div></div>
+                        <div class="glassmorphism rounded-lg" data-aos="fade-up"><button @click="openAccordion = (openAccordion === 6 ? null : 6)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-white"><span class="flex items-center">🎯<span class="ml-3">Módulo 5 - Estudos de Caso</span></span><svg :class="{'rotate-180': openAccordion === 6}" class="w-5 h-5 text-accent-purple transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></button><div x-show="openAccordion === 6" x-collapse class="p-5 pt-0 text-gray-400">Análise de campanhas reais e de sucesso.</div></div>
+                        <div class="bg-green-500/10 border border-green-500 rounded-lg" data-aos="fade-up"><button @click="openAccordion = (openAccordion === 7 ? null : 7)" class="w-full flex justify-between items-center p-5 text-left font-bold text-green-400"><span class="flex items-center">🤖<span class="ml-3">BÔNUS: Arsenal de Prompts IA</span></span><svg :class="{'rotate-180': openAccordion === 7}" class="w-5 h-5 text-green-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg></button><div x-show="openAccordion === 7" x-collapse class="p-5 pt-0 text-green-300">Use IA para acelerar sua criação de anúncios.</div></div>
+                    </div>
+                </div>
+                <div class="mt-12 max-w-md mx-auto bg-white p-8 rounded-xl shadow-2xl text-center" data-aos="fade-up" data-aos-delay="300">
+                    <p class="text-lg font-semibold text-gray-500 line-through">De R$ 639</p>
+                    <h3 class="text-xl font-bold text-gray-800">por apenas</h3>
+                    <p class="text-5xl font-extrabold my-2"><span class="gradient-text">12x de R$ 30,12</span></p>
+                    <p class="text-lg font-semibold text-gray-800">ou <span class="text-green-600 font-bold">R$ 299,99</span> à vista</p>
+                    <p class="mt-2 text-xs text-gray-500">Economize 10% no PIX: <strong class="text-green-600">R$ 269,99</strong></p>
+                    <a href="https://checkout.pauloberto.com.br/16529850" target="_blank" class="mt-6 inline-block w-full gradient-btn-secondary btn-3d-secondary text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg">
+                        GARANTIR MINHA VAGA AGORA
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. FAQ Section -->
+        <section id="faq" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Perguntas Frequentes</h2>
+                </div>
+                <div class="max-w-3xl mx-auto" x-data="{ openFaq: null }">
+                    <div class="space-y-4">
+                        <div class="glassmorphism rounded-lg" data-aos="fade-up"><button @click="openFaq = (openFaq === 1 ? null : 1)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-white"><span>Preciso ter experiência prévia?</span><svg :class="{'rotate-45': openFaq === 1}" class="w-5 h-5 text-accent-purple transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"></path></svg></button><div x-show="openFaq === 1" x-collapse class="p-5 pt-0 text-gray-400">Não. Foi desenvolvido para iniciantes e experientes.</div></div>
+                        <div class="glassmorphism rounded-lg" data-aos="fade-up"><button @click="openFaq = (openFaq === 2 ? null : 2)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-white"><span>Funciona para qualquer negócio?</span><svg :class="{'rotate-45': openFaq === 2}" class="w-5 h-5 text-accent-purple transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"></path></svg></button><div x-show="openFaq === 2" x-collapse class="p-5 pt-0 text-gray-400">Sim. É baseado em comportamento humano, não táticas de nicho.</div></div>
+                        <div class="glassmorphism rounded-lg" data-aos="fade-up"><button @click="openFaq = (openFaq === 3 ? null : 3)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-white"><span>Em quanto tempo vejo resultados?</span><svg :class="{'rotate-45': openFaq === 3}" class="w-5 h-5 text-accent-purple transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"></path></svg></button><div x-show="openFaq === 3" x-collapse class="p-5 pt-0 text-gray-400">Melhorias em engajamento imediatamente. Melhorias em custo/resultado em 2 semanas.</div></div>
+                        <div class="glassmorphism rounded-lg" data-aos="fade-up"><button @click="openFaq = (openFaq === 4 ? null : 4)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-white"><span>Por que o preço é tão acessível?</span><svg :class="{'rotate-45': openFaq === 4}" class="w-5 h-5 text-accent-purple transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"></path></svg></button><div x-show="openFaq === 4" x-collapse class="p-5 pt-0 text-gray-400"><p>Conhecimento deve ser acessível. Outros cursos similares custam R$1.000-2.500.</p></div></div>
+                        <div class="glassmorphism rounded-lg" data-aos="fade-up"><button @click="openFaq = (openFaq === 5 ? null : 5)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-white"><span>É relevante com as mudanças dos algoritmos?</span><svg :class="{'rotate-45': openFaq === 5}" class="w-5 h-5 text-accent-purple transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"></path></svg></button><div x-show="openFaq === 5" x-collapse class="p-5 pt-0 text-gray-400">Sim. Foi desenvolvido para trabalhar EM SINCRONIA com algoritmos.</div></div>
+                        <div class="glassmorphism rounded-lg" data-aos="fade-up"><button @click="openFaq = (openFaq === 6 ? null : 6)" class="w-full flex justify-between items-center p-5 text-left font-semibold text-white"><span>Como funciona a garantia?</span><svg :class="{'rotate-45': openFaq === 6}" class="w-5 h-5 text-accent-purple transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"></path></svg></button><div x-show="openFaq === 6" x-collapse class="p-5 pt-0 text-gray-400">Você tem o direito de solicitar o reembolso integral do valor pago dentro do prazo de 7 dias corridos a partir da data da compra, conforme estabelece o art. 49 do Código de Defesa do Consumidor (Lei nº 8.078/1990). Para isso, basta enviar sua solicitação para o e-mail: contato@pauloberto.com.br</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Final CTA Section -->
+        <section id="cta-final" class="py-16 md:py-24 animated-gradient-bg">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right" class="flex flex-col text-center md:text-left">
+                        <div class="w-full flex flex-col items-center md:items-start">
+                            <h2 class="text-4xl md:text-5xl font-extrabold text-white">Transforme Seus Anúncios Agora</h2>
+                            <p class="mt-4 text-lg text-gray-300 font-semibold">Bônus estão disponível apenas nesta página - não será vendido separadamente.</p>
+                            <ul class="mt-8 space-y-3 text-white text-lg">
+                                <li class="flex items-center justify-center md:justify-start"><span class="text-green-400 mr-3">✓</span>Pare de perder horas ajustando segmentações que só pioram seus resultados.</li>
+                                <li class="flex items-center justify-center md:justify-start"><span class="text-green-400 mr-3">✓</span>Transforme cliques baratos em leads qualificados que realmente compram.</li>
+                                <li class="flex items-center justify-center md:justify-start"><span class="text-green-400 mr-3">✓</span>Crie sistemas de anúncios que mantêm performance mesmo aumentando orçamento</li>
+                            </ul>
+                            <p class="mt-8 text-xl text-white font-bold">De <span class="line-through text-gray-400">R$ 639</span> por <span class="text-green-400">12x de R$ 30,12</span> ou <span class="text-green-400">R$ 299,99</span> (PIX com 10% OFF: R$ 269,99)</p>
+                            <a href="https://checkout.pauloberto.com.br/16529850" target="_blank" class="mt-8 block w-full md:inline-block md:w-auto text-center gradient-btn-secondary btn-3d-secondary text-white font-bold text-xl px-10 py-5 rounded-lg shadow-2xl animate-pulse">
+                                🚀 QUERO TRANSFORMAR MEUS ANÚNCIOS AGORA
+                            </a>
+                        </div>
+                        <div class="mt-6 w-full grid grid-cols-1 md:grid-cols-3 gap-y-2 md:gap-x-4 text-center text-gray-300 text-sm">
+                            <div>✅ Acesso vitalício</div>
+                            <div>✅ Suporte incluso</div>
+                            <div>✅ Resultados comprovados</div>
+                        </div>
+                    </div>
+                    <div class="hidden md:block" data-aos="fade-left" data-aos-delay="200">
+                        <img src="https://cdn.builder.io/api/v1/image/assets%2Ff261cd05e5a247768cb7d69688062e23%2Fc46ca93cf7ec4cb9a63f420e5ed58648" alt="[Mockup do curso com efeito flutuante]" class="rounded-xl shadow-2xl floating">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 8. Footer -->
+    <footer class="bg-gray-900 text-gray-500 py-8 border-t border-white/10">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <p>Curso Total Ads 360º © 2025 | Por Paulo Berto</p>
+            <p class="mt-2">Contato: suporte@totalads360.com</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="hover:text-white transition-colors">Termos</a>
+                <span>·</span>
+                <a href="#" class="hover:text-white transition-colors">Privacidade</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            duration: 800,
+            easing: 'ease-in-out',
+        });
+
+        // Corrected Animated Counter using requestAnimationFrame
+        function animateCounter(el, endValue, duration) {
+            let start = 0;
+            let startTime = null;
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const elapsedTime = currentTime - startTime;
+                const progress = Math.min(elapsedTime / duration, 1);
+                
+                let currentValue = Math.floor(progress * (endValue - start) + start);
+                el.textContent = currentValue.toLocaleString('pt-BR');
+
+                if (progress < 1) {
+                    requestAnimationFrame(animation);
+                } else {
+                    el.textContent = endValue.toLocaleString('pt-BR');
+                }
+            }
+            requestAnimationFrame(animation);
+        }
+
+        const counterEl = document.getElementById('counter');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate to 120,000 in 10 seconds (10000 ms)
+                    animateCounter(counterEl, 120000, 10000);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        if(counterEl) {
+            observer.observe(counterEl);
+        }
+
+        // ROI Calculator Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const coursePrice = 299.99;
+            let currentBusinessType = '';
+
+            const businessTypeRadios = document.querySelectorAll('input[name="businessType"]');
+            const vendasInputs = document.getElementById('vendas-inputs');
+            const leadsInputs = document.getElementById('leads-inputs');
+            const calculateBtn = document.getElementById('calculate-btn');
+            const vendasResults = document.getElementById('vendas-results');
+            const leadsResults = document.getElementById('leads-results');
+            const allInputs = document.querySelectorAll('.input-section input');
+
+            function handleBusinessTypeChange(e) {
+                currentBusinessType = e.target.value;
+                
+                vendasInputs.classList.add('hidden');
+                leadsInputs.classList.add('hidden');
+                
+                if (currentBusinessType === 'vendas') {
+                    vendasInputs.classList.remove('hidden');
+                } else if (currentBusinessType === 'leads') {
+                    leadsInputs.classList.remove('hidden');
+                }
+                
+                vendasResults.classList.add('hidden');
+                leadsResults.classList.add('hidden');
+                
+                calculateBtn.disabled = true;
+                validateInputs();
+            }
+
+            function validateInputs() {
+                let isValid = false;
+                
+                if (currentBusinessType === 'vendas') {
+                    const investimento = document.getElementById('investimento-vendas').value;
+                    const roas = document.getElementById('roas-atual').value;
+                    isValid = investimento && roas && parseFloat(investimento) > 0 && parseFloat(roas) > 0;
+                } else if (currentBusinessType === 'leads') {
+                    const investimento = document.getElementById('investimento-leads').value;
+                    const cpl = document.getElementById('cpl-atual').value;
+                    const ticket = document.getElementById('ticket-medio').value;
+                    isValid = investimento && cpl && ticket && 
+                             parseFloat(investimento) > 0 && 
+                             parseFloat(cpl) > 0 && 
+                             parseFloat(ticket) > 0;
+                }
+                
+                calculateBtn.disabled = !isValid;
+            }
+
+            function performCalculation() {
+                calculateBtn.querySelector('.btn-text').classList.add('hidden');
+                calculateBtn.querySelector('.btn-loader').classList.remove('hidden');
+                calculateBtn.disabled = true;
+                
+                setTimeout(() => {
+                    if (currentBusinessType === 'vendas') {
+                        calculateVendas();
+                    } else if (currentBusinessType === 'leads') {
+                        calculateLeads();
+                    }
+                    
+                    calculateBtn.querySelector('.btn-text').classList.remove('hidden');
+                    calculateBtn.querySelector('.btn-loader').classList.add('hidden');
+                    validateInputs();
+                }, 1500);
+            }
+
+            function calculateVendas() {
+                const investimento = parseFloat(document.getElementById('investimento-vendas').value);
+                const roasAtual = parseFloat(document.getElementById('roas-atual').value);
+                
+                const faturamentoAtual = investimento * roasAtual;
+                const novoRoas = roasAtual * 1.30;
+                const novoFaturamento = investimento * novoRoas;
+                const ganhoMensal = novoFaturamento - faturamentoAtual;
+                const ganhoAnual = ganhoMensal * 12;
+                const lucroLiquido = ganhoAnual - coursePrice;
+                const diasRecuperacao = ganhoMensal > 0 ? Math.ceil((coursePrice / ganhoMensal) * 30) : 'N/A';
+                
+                document.getElementById('faturamento-atual').textContent = formatCurrency(faturamentoAtual);
+                document.getElementById('novo-faturamento').textContent = formatCurrency(novoFaturamento);
+                document.getElementById('ganho-mensal').textContent = formatCurrency(ganhoMensal);
+                document.getElementById('ganho-anual').textContent = formatCurrency(ganhoAnual);
+                document.getElementById('dias-recuperacao').textContent = diasRecuperacao;
+                document.getElementById('lucro-liquido').textContent = formatCurrency(lucroLiquido);
+                
+                vendasResults.classList.remove('hidden');
+                leadsResults.classList.add('hidden');
+                
+                animateResultNumbers(vendasResults);
+                vendasResults.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            function calculateLeads() {
+                const investimento = parseFloat(document.getElementById('investimento-leads').value);
+                const cplAtual = parseFloat(document.getElementById('cpl-atual').value);
+                
+                const leadsAtuais = Math.floor(investimento / cplAtual);
+                const novoCpl = cplAtual * 0.70;
+                const novasLeads = Math.floor(investimento / novoCpl);
+                const leadsExtras = novasLeads - leadsAtuais;
+                const economiaMensal = leadsExtras * cplAtual;
+                const economiaAnual = economiaMensal * 12;
+                const sobraLiquida = economiaMensal - coursePrice;
+                
+                document.getElementById('leads-atuais').textContent = leadsAtuais;
+                document.getElementById('novas-leads').textContent = novasLeads;
+                document.getElementById('leads-extras').textContent = leadsExtras;
+                document.getElementById('economia-mensal').textContent = formatCurrency(economiaMensal);
+                document.getElementById('economia-anual').textContent = formatCurrency(economiaAnual);
+                document.getElementById('economia-primeiro-mes').textContent = formatCurrency(economiaMensal);
+                document.getElementById('sobra-liquida').textContent = formatCurrency(sobraLiquida);
+                
+                leadsResults.classList.remove('hidden');
+                vendasResults.classList.add('hidden');
+                
+                animateResultNumbers(leadsResults);
+                leadsResults.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            function formatCurrency(value) {
+                return new Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL',
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                }).format(value);
+            }
+
+            function animateResultNumbers(container) {
+                const numbers = container.querySelectorAll('.metric-value, .gain-value, .annual-value, .saving-value');
+                numbers.forEach(number => {
+                    number.style.transition = 'transform 0.3s ease-out';
+                    number.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        number.style.transform = 'scale(1)';
+                    }, 100);
+                });
+            }
+
+            businessTypeRadios.forEach(radio => radio.addEventListener('change', handleBusinessTypeChange));
+            allInputs.forEach(input => input.addEventListener('input', validateInputs));
+            calculateBtn.addEventListener('click', performCalculation);
+        });
+    </script>
+</body>
+</html>
