@@ -24,15 +24,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Alpine.js for interactivity -->
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
     <style>
         /* Custom styles for the "Arrojado" design */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0d1117; /* Dark background */
             color: #e6edf3; /* Light text for dark background */
+            overflow-x: hidden; /* Prevents horizontal scroll issues */
         }
 
         :root {
@@ -94,11 +92,11 @@
             background-position: right center;
         }
 
-        /* Glassmorphism effect */
+        /* Glassmorphism effect with -webkit- prefix for iOS compatibility */
         .glassmorphism {
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -140,6 +138,7 @@
             max-width: 800px;
             margin: 0 auto;
             background: rgba(22, 27, 34, 0.8);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border-radius: 24px;
             padding: 40px;
@@ -396,6 +395,7 @@
 
         .metric-card {
             background: rgba(255, 255, 255, 0.15);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             padding: 20px;
             border-radius: 16px;
@@ -499,6 +499,7 @@
         /* ROI Box */
         .roi-box {
             background: rgba(255, 255, 255, 0.25);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             padding: 25px;
             border-radius: 16px;
@@ -554,7 +555,7 @@
         @media (max-width: 768px) {
             .calculator-container {
                 padding: 25px;
-                margin: 0 15px;
+                margin: 0;
             }
             .results-card {
                 padding: 30px 20px;
@@ -609,15 +610,13 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/5511930308040" target="_blank" rel="noopener noreferrer" class="fixed bottom-4 left-4 md:bottom-8 md:left-8 z-50 bg-green-500 text-white p-3 md:p-4 rounded-full shadow-lg hover:bg-green-600 transition-transform transform hover:scale-110">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8" viewBox="0 0 24 24" fill="currentColor" style="background-image: url(https://cdn.builder.io/api/v1/image/assets%2Ff261cd05e5a247768cb7d69688062e23%2F49a08c2d9e724ffeb5389dcfcc4b67ad); background-repeat: no-repeat; background-position: center; background-size: cover;">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.505 1.905 6.344l-1.225 4.485 4.635-1.218z"/>
-        </svg>
+    <a href="https://wa.me/5511930308040" target="_blank" rel="noopener noreferrer" class="fixed bottom-4 left-4 md:bottom-8 md:left-8 z-50 bg-green-500 w-14 h-14 md:w-16 md:h-16 rounded-full shadow-lg hover:bg-green-600 transition-transform transform hover:scale-110 flex items-center justify-center">
+        <img src="https://cdn.builder.io/api/v1/image/assets%2Ff261cd05e5a247768cb7d69688062e23%2Fc1029c066f064313951c56de9f61a765?format=webp&width=800" alt="Fale no WhatsApp" class="w-8 h-8 md:w-10 md:h-10">
     </a>
 
     <!-- 0. Navigation Bar (Fixed/Floating) -->
     <header x-data="{ mobileMenuOpen: false }" class="glassmorphism fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl mx-auto rounded-xl z-50">
-        <div class="container mx-auto px-6 py-3">
+        <div class="w-full max-w-6xl mx-auto px-6 py-3">
             <div class="flex items-center justify-between">
                 <a href="#" class="text-xl font-bold text-white">Total Ads 360º</a>
                 <nav class="hidden md:flex items-center space-x-8">
@@ -647,15 +646,15 @@
         </div>
     </header>
 
-    <main class="pt-24">
+    <main class="pt-24 overflow-hidden">
 
         <!-- 1. Hero Section -->
-        <section class="relative py-20 md:py-32 overflow-hidden">
+        <section class="relative py-20 md:py-32">
              <div class="absolute inset-0 bg-grid-white/[0.05] [mask-image:linear-gradient(to_bottom,white_5%,transparent_90%)]"></div>
              <div class="absolute top-0 left-0 w-96 h-96 bg-accent-purple/20 rounded-full filter blur-3xl opacity-50 animate-blob"></div>
              <div class="absolute top-1/2 right-0 w-96 h-96 bg-secondary-green/20 rounded-full filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
 
-            <div class="container mx-auto px-6 relative z-10">
+            <div class="w-full max-w-6xl mx-auto px-6 relative z-10">
                 <div class="grid md:grid-cols-5 gap-12 items-center">
                     <div class="md:col-span-3" data-aos="fade-right">
                         <h1 class="text-4xl md:text-6xl font-black text-white leading-tight tracking-tighter">
@@ -664,7 +663,7 @@
                         <p class="mt-6 text-lg text-gray-300">
                             Após analisar mais de R$40 milhões em campanhas comprovei que anúncios eficazes falam com tipos específicos de personalidade, não com 'todo mundo'. Meu método ensina como fazer isso sistematicamente.
                         </p>
-                        <a href="https://checkout.pauloberto.com.br/16529850" target="_blank" class="mt-10 inline-block gradient-btn-secondary btn-3d-secondary text-white font-bold text-xl px-10 py-5 rounded-lg shadow-lg">
+                        <a href="https://checkout.pauloberto.com.br/16529850" target="_blank" class="mt-10 inline-flex items-center justify-center w-full sm:w-auto gradient-btn-secondary btn-3d-secondary text-white font-bold text-xl px-10 py-5 rounded-lg shadow-lg">
                             🎯 QUERO FAZER ANÚNCIOS 360º
                         </a>
                         <p class="mt-6 text-sm text-gray-400 font-semibold">
@@ -684,7 +683,7 @@
 
         <!-- 2. Problem Section -->
         <section class="py-16 md:py-24">
-            <div class="container mx-auto px-6 text-center">
+            <div class="w-full max-w-6xl mx-auto px-6 text-center">
                 <div data-aos="fade-up">
                     <h2 class="text-3xl md:text-4xl font-bold text-white">Por Que Anúncios 'Criativos' Fracassam Enquanto Anúncios <span class="gradient-text">Inteligentes e Estratégicos</span> Vendem?</h2>
                     <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">Essa é a realidade que 90% dos anunciantes ignora completamente.</p>
@@ -720,7 +719,7 @@
 
         <!-- 3. Solution Section (3 Pillars) -->
         <section id="metodo" class="py-16 md:py-24 animated-gradient-bg">
-            <div class="container mx-auto px-6 text-center">
+            <div class="w-full max-w-6xl mx-auto px-6 text-center">
                 <div data-aos="fade-up">
                     <h2 class="text-3xl md:text-4xl font-bold text-white">Te Apresento Meu Curso <span class="gradient-text">Total Ads 360º</span></h2>
                     <p class="mt-4 text-lg font-medium text-gray-300 max-w-3xl mx-auto">A metodologia que sincroniza seus anúncios com o comportamento humano e a otimização das plataformas. Este Curso está baseado na metodologia <strong><u>EM-SA</u></strong> que desenvolvi ao longo de mais de uma década gerenciando campanhas.</p>
@@ -750,136 +749,138 @@
 
         <!-- ROI Calculator Section -->
         <section class="calculator-section" id="calculadora">
-            <div class="calculator-container" data-aos="fade-up">
-                <div class="calculator-header">
-                    <h2>Descubra Quanto Você Pode <span class="gradient-text">Economizar e Ganhar</span></h2>
-                    <p class="subtitle">Em 10 anos analisando R$40 milhões em campanhas, identifiquei que aplicar o método correto melhora ROAS em no mínimo 30% e reduz CPL na mesma proporção. Calcule seu potencial:</p>
-                    <p class="intro-text">Mesmo aplicando apenas os conceitos básicos do Curso Total Ads 360º, nossos alunos relatam melhorias consistentes de 30-50% nos resultados. Use a calculadora abaixo para descobrir o impacto no seu negócio:</p>
-                </div>
-                
-                <div class="calculator-body">
-                    <div class="business-type-selector">
-                        <h3>Primeiro, me conte sobre seu negócio:</h3>
-                        <div class="radio-options">
-                            <label class="radio-card">
-                                <input type="radio" name="businessType" value="vendas">
-                                <div class="radio-content">
-                                    <span class="icon">🛒</span>
-                                    <span class="text">Vendo produtos/serviços diretamente</span>
-                                    <span class="subtext">Uso anúncios para gerar vendas imediatas</span>
+            <div class="w-full max-w-6xl mx-auto px-6">
+                <div class="calculator-container" data-aos="fade-up">
+                    <div class="calculator-header">
+                        <h2>Descubra Quanto Você Pode <span class="gradient-text">Economizar e Ganhar</span></h2>
+                        <p class="subtitle">Em 10 anos analisando R$40 milhões em campanhas, identifiquei que aplicar o método correto melhora ROAS em no mínimo 30% e reduz CPL na mesma proporção. Calcule seu potencial:</p>
+                        <p class="intro-text">Mesmo aplicando apenas os conceitos básicos do Curso Total Ads 360º, nossos alunos relatam melhorias consistentes de 30-50% nos resultados. Use a calculadora abaixo para descobrir o impacto no seu negócio:</p>
+                    </div>
+                    
+                    <div class="calculator-body">
+                        <div class="business-type-selector">
+                            <h3>Primeiro, me conte sobre seu negócio:</h3>
+                            <div class="radio-options">
+                                <label class="radio-card">
+                                    <input type="radio" name="businessType" value="vendas">
+                                    <div class="radio-content">
+                                        <span class="icon">🛒</span>
+                                        <span class="text">Vendo produtos/serviços diretamente</span>
+                                        <span class="subtext">Uso anúncios para gerar vendas imediatas</span>
+                                    </div>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="businessType" value="leads">
+                                    <div class="radio-content">
+                                        <span class="icon">📋</span>
+                                        <span class="text">Gero leads para vendas offline</span>
+                                        <span class="subtext">Uso anúncios para capturar contatos qualificados</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="vendas-inputs" class="input-section hidden">
+                            <div class="input-group">
+                                <label>💰 Quanto você investe por mês em anúncios?</label>
+                                <div class="input-wrapper">
+                                    <span class="currency">R$</span>
+                                    <input type="number" id="investimento-vendas" placeholder="5000" min="100" step="100">
                                 </div>
-                            </label>
-                            <label class="radio-card">
-                                <input type="radio" name="businessType" value="leads">
-                                <div class="radio-content">
-                                    <span class="icon">📋</span>
-                                    <span class="text">Gero leads para vendas offline</span>
-                                    <span class="subtext">Uso anúncios para capturar contatos qualificados</span>
+                                <span class="help-text">Digite apenas números (ex: 5000 para R$ 5.000)</span>
+                            </div>
+                            <div class="input-group">
+                                <label>📊 Qual seu ROAS médio atual?</label>
+                                <div class="input-wrapper">
+                                    <input type="number" id="roas-atual" placeholder="3.5" min="0.1" step="0.1">
+                                    <span class="suffix">x</span>
                                 </div>
-                            </label>
+                                <span class="help-text">ROAS = Faturamento ÷ Investimento (ex: 3.5 significa que cada R$1 investido gera R$3,50)</span>
+                            </div>
                         </div>
+
+                        <div id="leads-inputs" class="input-section hidden">
+                            <div class="input-group">
+                                <label>💰 Quanto você investe por mês em anúncios?</label>
+                                <div class="input-wrapper">
+                                    <span class="currency">R$</span>
+                                    <input type="number" id="investimento-leads" placeholder="3000" min="100" step="100">
+                                </div>
+                                <span class="help-text">Digite apenas números (ex: 3000 para R$ 3.000)</span>
+                            </div>
+                            <div class="input-group">
+                                <label>📋 Qual seu CPL médio atual?</label>
+                                <div class="input-wrapper">
+                                    <span class="currency">R$</span>
+                                    <input type="number" id="cpl-atual" placeholder="25" min="1" step="0.50">
+                                </div>
+                                <span class="help-text">CPL = Investimento ÷ Número de leads (ex: R$ 25 por lead)</span>
+                            </div>
+                            <div class="input-group">
+                                <label>💵 Qual o ticket médio das suas vendas?</label>
+                                <div class="input-wrapper">
+                                    <span class="currency">R$</span>
+                                    <input type="number" id="ticket-medio" placeholder="500" min="50" step="50">
+                                </div>
+                                <span class="help-text">Valor médio de cada venda que você fecha (ex: R$ 500)</span>
+                            </div>
+                        </div>
+
+                        <button id="calculate-btn" class="calculate-button" disabled>
+                            <span class="btn-text">📊 CALCULAR MEU POTENCIAL</span>
+                            <span class="btn-loader hidden">⏳ Calculando...</span>
+                        </button>
+                    </div>
+                    
+                    <div id="vendas-results" class="results-card hidden">
+                        <div class="results-header"><h3>🎯 POTENCIAL DE GANHO COM ANÚNCIOS 360º</h3></div>
+                        <div class="metrics-grid">
+                            <div class="metric-card current"><span class="metric-label">Faturamento atual</span><span class="metric-value" id="faturamento-atual">R$ 0</span><span class="metric-period">por mês</span></div>
+                            <div class="metric-card improved"><span class="metric-label">Novo faturamento</span><span class="metric-value" id="novo-faturamento">R$ 0</span><span class="metric-period">por mês</span></div>
+                        </div>
+                        <div class="main-result"><div class="gain-highlight"><span class="gain-label">GANHO ADICIONAL MENSAL:</span><span class="gain-value" id="ganho-mensal">R$ 0</span></div></div>
+                        <div class="annual-projection"><span class="annual-label">💰 EM 12 MESES:</span><span class="annual-value" id="ganho-anual">R$ 0</span></div>
+                        <div class="roi-box">
+                            <div class="roi-content">
+                                <h4>O Curso Total Ads 360º custa apenas <span class="course-price">R$ 299,99</span></h4>
+                                <div class="roi-details">
+                                    <p>✅ Você recupera o investimento em <span id="dias-recuperacao">0</span> dias</p>
+                                    <p>✅ Lucro líquido no primeiro ano: <span id="lucro-liquido">R$ 0</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="https://checkout.pauloberto.com.br/16529850" target="_blank" class="cta-button">🚀 QUERO FAZER ANÚNCIOS 360º</a>
                     </div>
 
-                    <div id="vendas-inputs" class="input-section hidden">
-                        <div class="input-group">
-                            <label>💰 Quanto você investe por mês em anúncios?</label>
-                            <div class="input-wrapper">
-                                <span class="currency">R$</span>
-                                <input type="number" id="investimento-vendas" placeholder="5000" min="100" step="100">
-                            </div>
-                            <span class="help-text">Digite apenas números (ex: 5000 para R$ 5.000)</span>
+                    <div id="leads-results" class="results-card hidden">
+                        <div class="results-header"><h3>📊 POTENCIAL DE ECONOMIA COM ANÚNCIOS 360º</h3></div>
+                        <div class="metrics-grid">
+                            <div class="metric-card current"><span class="metric-label">Leads atuais</span><span class="metric-value" id="leads-atuais">0</span><span class="metric-period">por mês</span></div>
+                            <div class="metric-card improved"><span class="metric-label">Novas leads</span><span class="metric-value" id="novas-leads">0</span><span class="metric-period">por mês</span></div>
                         </div>
-                        <div class="input-group">
-                            <label>📊 Qual seu ROAS médio atual?</label>
-                            <div class="input-wrapper">
-                                <input type="number" id="roas-atual" placeholder="3.5" min="0.1" step="0.1">
-                                <span class="suffix">x</span>
-                            </div>
-                            <span class="help-text">ROAS = Faturamento ÷ Investimento (ex: 3.5 significa que cada R$1 investido gera R$3,50)</span>
+                        <div class="main-result"><div class="gain-highlight"><span class="gain-label">LEADS EXTRAS MENSAIS:</span><span class="gain-value" id="leads-extras">0</span></div></div>
+                        <div class="savings-section">
+                            <div class="saving-item"><span class="saving-label">💰 ECONOMIA MENSAL:</span><span class="saving-value" id="economia-mensal">R$ 0</span></div>
+                            <div class="saving-item"><span class="saving-label">💰 EM 12 MESES:</span><span class="saving-value" id="economia-anual">R$ 0</span></div>
                         </div>
-                    </div>
-
-                    <div id="leads-inputs" class="input-section hidden">
-                        <div class="input-group">
-                            <label>💰 Quanto você investe por mês em anúncios?</label>
-                            <div class="input-wrapper">
-                                <span class="currency">R$</span>
-                                <input type="number" id="investimento-leads" placeholder="3000" min="100" step="100">
-                            </div>
-                            <span class="help-text">Digite apenas números (ex: 3000 para R$ 3.000)</span>
-                        </div>
-                        <div class="input-group">
-                            <label>📋 Qual seu CPL médio atual?</label>
-                            <div class="input-wrapper">
-                                <span class="currency">R$</span>
-                                <input type="number" id="cpl-atual" placeholder="25" min="1" step="0.50">
-                            </div>
-                            <span class="help-text">CPL = Investimento ÷ Número de leads (ex: R$ 25 por lead)</span>
-                        </div>
-                        <div class="input-group">
-                            <label>💵 Qual o ticket médio das suas vendas?</label>
-                            <div class="input-wrapper">
-                                <span class="currency">R$</span>
-                                <input type="number" id="ticket-medio" placeholder="500" min="50" step="50">
-                            </div>
-                            <span class="help-text">Valor médio de cada venda que você fecha (ex: R$ 500)</span>
-                        </div>
-                    </div>
-
-                    <button id="calculate-btn" class="calculate-button" disabled>
-                        <span class="btn-text">📊 CALCULAR MEU POTENCIAL</span>
-                        <span class="btn-loader hidden">⏳ Calculando...</span>
-                    </button>
-                </div>
-                
-                <div id="vendas-results" class="results-card hidden">
-                    <div class="results-header"><h3>🎯 POTENCIAL DE GANHO COM ANÚNCIOS 360º</h3></div>
-                    <div class="metrics-grid">
-                        <div class="metric-card current"><span class="metric-label">Faturamento atual</span><span class="metric-value" id="faturamento-atual">R$ 0</span><span class="metric-period">por mês</span></div>
-                        <div class="metric-card improved"><span class="metric-label">Novo faturamento</span><span class="metric-value" id="novo-faturamento">R$ 0</span><span class="metric-period">por mês</span></div>
-                    </div>
-                    <div class="main-result"><div class="gain-highlight"><span class="gain-label">GANHO ADICIONAL MENSAL:</span><span class="gain-value" id="ganho-mensal">R$ 0</span></div></div>
-                    <div class="annual-projection"><span class="annual-label">💰 EM 12 MESES:</span><span class="annual-value" id="ganho-anual">R$ 0</span></div>
-                    <div class="roi-box">
-                        <div class="roi-content">
-                            <h4>O Curso Total Ads 360º custa apenas <span class="course-price">R$ 299,99</span></h4>
-                            <div class="roi-details">
-                                <p>✅ Você recupera o investimento em <span id="dias-recuperacao">0</span> dias</p>
-                                <p>✅ Lucro líquido no primeiro ano: <span id="lucro-liquido">R$ 0</span></p>
+                        <div class="roi-box">
+                            <div class="roi-content">
+                                <h4>O Curso Total Ads 360º custa apenas <span class="course-price">R$ 299,99</span></h4>
+                                <div class="roi-details">
+                                    <p>✅ Sua economia no primeiro mês: <span id="economia-primeiro-mes">R$ 0</span></p>
+                                    <p>✅ Sobra líquida: <span id="sobra-liquida">R$ 0</span></p>
+                                </div>
                             </div>
                         </div>
+                        <a href="https://checkout.pauloberto.com.br/16529850" target="_blank" class="cta-button">🚀 QUERO FAZER ANÚNCIOS 360º</a>
                     </div>
-                    <a href="https://checkout.pauloberto.com.br/16529850" target="_blank" class="cta-button">🚀 QUERO FAZER ANÚNCIOS 360º</a>
-                </div>
-
-                <div id="leads-results" class="results-card hidden">
-                    <div class="results-header"><h3>📊 POTENCIAL DE ECONOMIA COM ANÚNCIOS 360º</h3></div>
-                    <div class="metrics-grid">
-                        <div class="metric-card current"><span class="metric-label">Leads atuais</span><span class="metric-value" id="leads-atuais">0</span><span class="metric-period">por mês</span></div>
-                        <div class="metric-card improved"><span class="metric-label">Novas leads</span><span class="metric-value" id="novas-leads">0</span><span class="metric-period">por mês</span></div>
-                    </div>
-                    <div class="main-result"><div class="gain-highlight"><span class="gain-label">LEADS EXTRAS MENSAIS:</span><span class="gain-value" id="leads-extras">0</span></div></div>
-                    <div class="savings-section">
-                        <div class="saving-item"><span class="saving-label">💰 ECONOMIA MENSAL:</span><span class="saving-value" id="economia-mensal">R$ 0</span></div>
-                        <div class="saving-item"><span class="saving-label">💰 EM 12 MESES:</span><span class="saving-value" id="economia-anual">R$ 0</span></div>
-                    </div>
-                    <div class="roi-box">
-                        <div class="roi-content">
-                            <h4>O Curso Total Ads 360º custa apenas <span class="course-price">R$ 299,99</span></h4>
-                            <div class="roi-details">
-                                <p>✅ Sua economia no primeiro mês: <span id="economia-primeiro-mes">R$ 0</span></p>
-                                <p>✅ Sobra líquida: <span id="sobra-liquida">R$ 0</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="https://checkout.pauloberto.com.br/16529850" target="_blank" class="cta-button">🚀 QUERO FAZER ANÚNCIOS 360º</a>
                 </div>
             </div>
         </section>
 
         <!-- 4. Credibility Section -->
         <section id="sobre" class="py-16 md:py-24">
-            <div class="container mx-auto px-6">
+            <div class="w-full max-w-6xl mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div data-aos="fade-right" class="relative">
                         <img src="https://cdn.builder.io/api/v1/image/assets%2Ff261cd05e5a247768cb7d69688062e23%2Fa6cb5dd9ee2c440c90d8178f39b29a5c" alt="[Imagem grande e profissional de Paulo Berto]" class="rounded-xl shadow-2xl w-full relative z-10">
@@ -906,7 +907,7 @@
 
         <!-- 5. Offer Section -->
         <section id="modulos" class="py-16 md:py-24 bg-gray-900/50">
-            <div class="container mx-auto px-6">
+            <div class="w-full max-w-6xl mx-auto px-6">
                 <div class="text-center" data-aos="fade-up">
                     <h2 class="text-3xl md:text-4xl font-bold text-white">O Que Você Receberá No Curso <span class="gradient-text">Total Ads 360º</span></h2>
                 </div>
@@ -939,7 +940,7 @@
 
         <!-- 6. FAQ Section -->
         <section id="faq" class="py-16 md:py-24">
-            <div class="container mx-auto px-6">
+            <div class="w-full max-w-6xl mx-auto px-6">
                 <div class="text-center mb-12" data-aos="fade-up">
                     <h2 class="text-3xl md:text-4xl font-bold text-white">Perguntas Frequentes</h2>
                 </div>
@@ -958,7 +959,7 @@
 
         <!-- 7. Final CTA Section -->
         <section id="cta-final" class="py-16 md:py-24 animated-gradient-bg">
-            <div class="container mx-auto px-6">
+            <div class="w-full max-w-6xl mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div data-aos="fade-right" class="flex flex-col text-center md:text-left">
                         <div class="w-full flex flex-col items-center md:items-start">
@@ -991,7 +992,7 @@
 
     <!-- 8. Footer -->
     <footer class="bg-gray-900 text-gray-500 py-8 border-t border-white/10">
-        <div class="container mx-auto px-6 text-center text-sm">
+        <div class="w-full max-w-6xl mx-auto px-6 text-center text-sm">
             <p>Curso Total Ads 360º © 2025 | Por Paulo Berto</p>
             <p class="mt-2">Contato: suporte@totalads360.com</p>
             <div class="mt-4 space-x-4">
@@ -1001,54 +1002,60 @@
             </div>
         </div>
     </footer>
-
+    
+    <!-- Alpine.js for interactivity -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- AOS (Animate on Scroll) Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom Scripts Initialization -->
     <script>
-        AOS.init({
-            once: true,
-            duration: 800,
-            easing: 'ease-in-out',
-        });
-
-        // Corrected Animated Counter using requestAnimationFrame
-        function animateCounter(el, endValue, duration) {
-            let start = 0;
-            let startTime = null;
-
-            function animation(currentTime) {
-                if (startTime === null) startTime = currentTime;
-                const elapsedTime = currentTime - startTime;
-                const progress = Math.min(elapsedTime / duration, 1);
-                
-                let currentValue = Math.floor(progress * (endValue - start) + start);
-                el.textContent = currentValue.toLocaleString('pt-BR');
-
-                if (progress < 1) {
-                    requestAnimationFrame(animation);
-                } else {
-                    el.textContent = endValue.toLocaleString('pt-BR');
-                }
-            }
-            requestAnimationFrame(animation);
-        }
-
-        const counterEl = document.getElementById('counter');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Animate to 120,000 in 10 seconds (10000 ms)
-                    animateCounter(counterEl, 120000, 10000);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        if(counterEl) {
-            observer.observe(counterEl);
-        }
-
-        // ROI Calculator Logic
         document.addEventListener('DOMContentLoaded', () => {
+            
+            AOS.init({
+                once: true,
+                duration: 800,
+                easing: 'ease-in-out',
+            });
+
+            // Corrected Animated Counter using requestAnimationFrame
+            function animateCounter(el, endValue, duration) {
+                let start = 0;
+                let startTime = null;
+
+                function animation(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const elapsedTime = currentTime - startTime;
+                    const progress = Math.min(elapsedTime / duration, 1);
+                    
+                    let currentValue = Math.floor(progress * (endValue - start) + start);
+                    el.textContent = currentValue.toLocaleString('pt-BR');
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animation);
+                    } else {
+                        el.textContent = endValue.toLocaleString('pt-BR');
+                    }
+                }
+                requestAnimationFrame(animation);
+            }
+
+            const counterEl = document.getElementById('counter');
+            if (counterEl) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Animate to 120,000 in 10 seconds (10000 ms)
+                            animateCounter(counterEl, 120000, 10000);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(counterEl);
+            }
+
+            // ROI Calculator Logic
             const coursePrice = 299.99;
             let currentBusinessType = '';
 
